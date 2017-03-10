@@ -26,6 +26,9 @@ CREATE TABLE Orders(
   ShipDate bigint NOT NULL,
   TotalAmount bigint NOT NULL);
 
+  ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
+
   CREATE TABLE Customers(
 CustomerID bigint NOT NULL PRIMARY KEY,
  FirstName varchar(50) NOT NULL,
