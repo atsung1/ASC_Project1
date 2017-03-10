@@ -10,7 +10,7 @@ CREATE TABLE Product(
   ProductName varchar(50) NOT NULL,
   ProductCategory varchar(50) NOT NULL);
 
-CREATE TABLE Course(
+CREATE TABLE Ingredients(
   CourseID bigint NOT NULL PRIMARY KEY,
   CourseTitle varchar(50) NOT NULL,
   Instuctor varchar(50) NOT NULL);
