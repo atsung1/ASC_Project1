@@ -42,6 +42,19 @@ CustomerID bigint NOT NULL PRIMARY KEY,
  EndDate date NOT NULL, 
 Discount bigint NOT NULL);
 
+CREATE TABLE Packages(
+PackageID bigint NOT NULL PRIMARY KEY, 
+PackageSize bigint NOT NULL, 
+Price bigint NOT NULL);
+
+CREATE TABLE Suppliers(
+SupplierID bigint NOT NULL PRIMARY KEY,
+SupplierName varchar (50) NOT NULL,
+ContactName varchar (50) NOT NULL,
+PhoneNumber bigint NOT NULL, 
+SupplierAddress varchar (50) NOT NULL); 
+
+
 -- create product-ingredient table
 	-- need two foreign keys 
 
