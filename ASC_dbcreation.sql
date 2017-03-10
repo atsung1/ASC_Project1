@@ -23,8 +23,8 @@ CREATE TABLE Orders(
   OrderDate bigint NOT NULL,
   ShipDate bigint NOT NULL,
   TotalAmount bigint NOT NULL,
-  CustomerID bigint NOT NULL
-  SubscriptionDiscount bigint NOT NULL;);
+  CustomerID bigint NOT NULL,
+  SubscriptionID bigint NOT NULL);
 
 
   CREATE TABLE Customers(
@@ -74,7 +74,7 @@ GO
 
   -- create the relationship: the second FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
-  FOREIGN KEY (SubscriptionDiscount) REFERENCES Subscription(Discount);
+  FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 -- create the relationship: the first FK in ingredient 
 
 -- create the relationship: the first FK in customers
