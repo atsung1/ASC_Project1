@@ -8,12 +8,17 @@ GO
 CREATE TABLE Product(
   ProductID bigint NOT NULL PRIMARY KEY,
   ProductName varchar(50) NOT NULL,
-  ProductCategory varchar(50) NOT NULL);
+  ProductCategory varchar(50) NOT NULL,
+  IngredientID bigint NOT NULL);
 
 CREATE TABLE Ingredients(
-  CourseID bigint NOT NULL PRIMARY KEY,
-  CourseTitle varchar(50) NOT NULL,
-  Instuctor varchar(50) NOT NULL);
+  IngredientID bigint NOT NULL PRIMARY KEY,
+  IngredientName varchar(50) NOT NULL,
+  Flagged varchar(50) NOT NULL);
+  -- Create the relationship: the first FK in Product
+ALTER TABLE Product ADD CONSTRAINT FK_1 
+FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
+GO
 
 CREATE TABLE Orders(
   OrderID bigint NOT NULL PRIMARY KEY,
