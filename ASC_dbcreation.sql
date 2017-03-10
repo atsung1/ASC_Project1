@@ -15,19 +15,14 @@ CREATE TABLE Ingredients(
   IngredientID bigint NOT NULL PRIMARY KEY,
   IngredientName varchar(50) NOT NULL,
   Flagged varchar(50) NOT NULL);
-  -- Create the relationship: the first FK in Product
-ALTER TABLE Product ADD CONSTRAINT FK_1 
-FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
-GO
+
 
 CREATE TABLE Orders(
   OrderID bigint NOT NULL PRIMARY KEY,
   OrderDate bigint NOT NULL,
   ShipDate bigint NOT NULL,
-  TotalAmount bigint NOT NULL);
-
-  ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
-  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
+  TotalAmount bigint NOT NULL,
+  CustomerID bigint NOT NULL);
 
   CREATE TABLE Customers(
 CustomerID bigint NOT NULL PRIMARY KEY,
@@ -40,11 +35,36 @@ CustomerID bigint NOT NULL PRIMARY KEY,
  Email varchar(50) NOT NULL,
  PhoneNumber varchar(50) NOT NULL);
 
+
  CREATE TABLE Subscription(
  SubscriptionID bigint NOT NULL PRIMARY KEY, 
  StartDate date NOT  NULL, 
  EndDate date NOT NULL, 
 Discount bigint NOT NULL);
+
+-- create product-ingredient table
+	-- need two foreign keys 
+
+  -- Create the relationship: the first FK in Product
+ALTER TABLE Product ADD CONSTRAINT FK_1 
+FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
+GO
+
+-- create the relationsihp: the first FK in orders
+  ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
+
+  -- create the relationship: the second FK in orders
+
+-- create the relationship: the first FK in ingredient 
+
+-- create the relationship: the first FK in customers
+
+-- create the relationship: the first FK in subscription
+
+-- create the relationship: the first FK in packages
+
+-- create the relationship: the first FK in suppliers
 
 -- Create the relationship: the first FK in CourseEnrollment
 ALTER TABLE CourseEnrollment ADD CONSTRAINT FK_CourseEnrollment_Student 
