@@ -15,11 +15,28 @@ CREATE TABLE Ingredients(
   CourseTitle varchar(50) NOT NULL,
   Instuctor varchar(50) NOT NULL);
 
-CREATE TABLE CourseEnrollment(
-  EnrollmentID bigint NOT NULL PRIMARY KEY,
-  StudentId bigint NOT NULL,
-  CourseID bigint NOT NULL,
-  Grade float NOT NULL);
+CREATE TABLE Orders(
+  OrderID bigint NOT NULL PRIMARY KEY,
+  OrderDate bigint NOT NULL,
+  ShipDate bigint NOT NULL,
+  TotalAmount bigint NOT NULL);
+
+  CREATE TABLE Customers(
+CustomerID bigint NOT NULL PRIMARY KEY,
+ FirstName varchar(50) NOT NULL,
+ LastName varchar(50) NOT NULL,
+ AddressComplete varchar(50) NOT NULL,
+ ZipCode varchar(50) NOT NULL,
+ StateUS varchar(50) NOT NULL,
+ Country varchar(50) NOT NULL,
+ Email varchar(50) NOT NULL,
+ PhoneNumber varchar(50) NOT NULL);
+
+ CREATE TABLE Subscription(
+ SubscriptionID bigint NOT NULL PRIMARY KEY, 
+ StartDate date NOT  NULL, 
+ EndDate date NOT NULL, 
+Discount bigint NOT NULL);
 
 -- Create the relationship: the first FK in CourseEnrollment
 ALTER TABLE CourseEnrollment ADD CONSTRAINT FK_CourseEnrollment_Student 
