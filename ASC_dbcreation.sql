@@ -109,12 +109,17 @@ INSERT INTO Student (StudentID, FirstName, LastName) VALUES
 (5, 'Waree', 'Rungsiriwat');
 
 -- Add a few Ingredients (Clara)
+<<<<<<< HEAD
 INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
 (1, 'SoyProtein', 'Yes', 001), 
 (2, 'SunFlowerOil', 'Yes', 002), 
 (3, 'Isomaltulose', 'Yes', 003), 
 (4, 'Vitamin', 'No', 004), 
 (5, 'Mineral', 'No', 005);
+=======
+
+
+>>>>>>> origin/master
 -- Add a few Orders (Clara)
 INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
 (0001, 01-01-2017, 01-04-2017, '$55.00'),
@@ -125,9 +130,29 @@ INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES
 
 
 -- Add a few Customers (Sukanya)
+INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode, StateUS, Country, Email, PhoneNumber, SubscriptionID) VALUES 
+(1, 'Clara', 'Linanada', 'Campus Box #1443 231 Forest St.', '02457', 'MA', 'USA', 'clinanada1@babson.edu', '6263751779', '001'),
+(2, 'Angela', 'Tsung', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'atsung1@babson.edu', '6263751777', '002'),
+(3, 'Sukanya', 'Mukherjee', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'smukherjee4@babson.edu', '6263751778', '003'),
+(4, 'Prabha', 'Dublish', 'Campus Box #1448 231 Forest St.', '02457', 'MA', 'USA', 'pdublish1@babson.edu', '6263751774', '004'),
+(5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', '005');
 
+FirstName varchar(50) NOT NULL,
+ LastName varchar(50) NOT NULL,
+ AddressComplete varchar(50) NOT NULL,
+ ZipCode varchar(50) NOT NULL,
+ StateUS varchar(50) NOT NULL,
+ Country varchar(50) NOT NULL,
+ Email varchar(50) NOT NULL,
+ PhoneNumber varchar(50) NOT NULL,
+ SubscriptionID bigint NOT NULL);
 -- Add a few Subscriptions (Sukanya)
 
+ SubscriptionID bigint NOT NULL PRIMARY KEY, 
+ StartDate date NOT  NULL, 
+ EndDate date NOT NULL, 
+Discount bigint NOT NULL,
+CustomerID bigint NOT NULL);
 -- Add a few Packages (Angela)
 
 -- Add a few Suppliers (Angela)
