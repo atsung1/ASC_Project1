@@ -24,7 +24,11 @@ CREATE TABLE Orders(
   ShipDate bigint NOT NULL,
   TotalAmount bigint NOT NULL,
   CustomerID bigint NOT NULL,
+<<<<<<< HEAD
   SubscriptionDiscount bigint NOT NULL);
+=======
+  SubscriptionID bigint NOT NULL);
+>>>>>>> origin/master
 
 
   CREATE TABLE Customers(
@@ -44,19 +48,22 @@ CustomerID bigint NOT NULL PRIMARY KEY,
  SubscriptionID bigint NOT NULL PRIMARY KEY, 
  StartDate date NOT  NULL, 
  EndDate date NOT NULL, 
-Discount bigint NOT NULL);
+Discount bigint NOT NULL,
+CustomerID bigint NOT NULL);
 
 CREATE TABLE Packages(
 PackageID bigint NOT NULL PRIMARY KEY, 
 PackageSize bigint NOT NULL, 
-Price bigint NOT NULL);
+Price bigint NOT NULL,
+ProductID bigint NOT NULL);
 
 CREATE TABLE Suppliers(
 SupplierID bigint NOT NULL PRIMARY KEY,
 SupplierName varchar (50) NOT NULL,
 ContactName varchar (50) NOT NULL,
 PhoneNumber bigint NOT NULL, 
-SupplierAddress varchar (50) NOT NULL); 
+SupplierAddress varchar (50) NOT NULL,
+IngredientID bigint NOT NULL); 
 
 
 -- create product-ingredient table
@@ -74,7 +81,7 @@ GO
 
   -- create the relationship: the second FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
-  FOREIGN KEY (SubscriptionDiscount) REFERENCES Subscription(Discount);
+  FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 -- create the relationship: the first FK in ingredient 
 ALTER TABLE Ingredients ADD CONSTRAINT FK_Supplier1
 FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
@@ -85,14 +92,15 @@ FOREIGN KEY (SubscriptionID) REFERENCES Subsription(SubscriptionID);
 
 
 -- create the relationship: the first FK in subscription
-
+  ALTER TABLE Subscription ADD CONSTRAINT FK_Subscription_Customers
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
 -- create the relationship: the first FK in packages
-
+  ALTER TABLE Packages ADD CONSTRAINT FK_Packages_Product
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
 -- create the relationship: the first FK in suppliers
+  ALTER TABLE Suppliers ADD CONSTRAINT FK_Suppliers_Ingredients
+  FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
 
--- Create the relationship: the first FK in CourseEnrollment
-ALTER TABLE CourseEnrollment ADD CONSTRAINT FK_CourseEnrollment_Student 
-FOREIGN KEY (StudentId) REFERENCES Student(StudentID);
 GO
 
 -- We will use designer view to create another relationship: the second FK in CourseEnrollment
