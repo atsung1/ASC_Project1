@@ -8,8 +8,7 @@ GO
 CREATE TABLE Product(
   ProductID bigint NOT NULL PRIMARY KEY,
   ProductName varchar(50) NOT NULL,
-  ProductCategory varchar(50) NOT NULL,
-  IngredientID bigint NOT NULL);
+  ProductCategory varchar(50) NOT NULL);
 
 CREATE TABLE Ingredients(
   IngredientID bigint NOT NULL PRIMARY KEY,
@@ -101,12 +100,12 @@ GO
 
 
 -- Add a few Products
-INSERT INTO Student (StudentID, FirstName, LastName) VALUES 
-(1, 'Beong Jo', 'Kang'),
-(2, 'Kelsey', 'Claflin'),
-(3, 'Helena', 'Hernandez'),
-(4, 'Upasana', 'Roy'),
-(5, 'Waree', 'Rungsiriwat');
+INSERT INTO Product (ProductID, ProductName, ProductCategory) VALUES 
+(1, 'Original Drink', 'Drink'),
+(2, 'Nectar Drink', 'Drink'),
+(3, 'Cacao Drink', 'Drink'),
+(4, 'Coffiest', 'Coffiest'),
+(5, 'Soylent Powder', 'Powder');
 
 -- Add a few Ingredients (Clara)
 <<<<<<< HEAD
@@ -154,9 +153,19 @@ FirstName varchar(50) NOT NULL,
 Discount bigint NOT NULL,
 CustomerID bigint NOT NULL);
 -- Add a few Packages (Angela)
-
+INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
+(1, 12, 34, 5),
+(2, 24, 68, 4),
+(3, 36, 102, 3),
+(4, 48, 136, 2),
+(5, 60, 34, 1);
 -- Add a few Suppliers (Angela)
-
+INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, PhoneNumber, SupplierAddress, IngredientID) VALUES 
+(1, 'WheatThins', 'Andrei Volkov', 6174958978, '213 Forest St, Babson Park, MA 02457', 5 ),
+(2, 'SoyBeanCo', 'Zhi Li', 6828757483, '123 Rainbow St, San Francisco, CA 91434', 4),
+(3, 'Kraft', 'Mary Brown', 1025943658, '567 Unicorn St, Los Angeles, CA 90024', 3),
+(4, 'CocoCo', 'John Smith', 1363875763, '951 Babson College Drive, Wellesley, MA 02457', 2),
+(5, 'PowderCo', 'Ben Franklin', 3448576958, '373 Camelbak Rd, New York City, NY, 12584', 1);
 GO
 
 -- Delete the SME course
