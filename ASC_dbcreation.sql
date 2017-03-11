@@ -71,9 +71,7 @@ FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
   -- Create the relationship: the first FK in Product
 ALTER TABLE ProductIngredient ADD CONSTRAINT FK_I 
 FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
-  -- Create the relationship: the first FK in Product
-ALTER TABLE Product ADD CONSTRAINT FK_1 
-FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
+
 -- create the relationsihp: the first FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
@@ -108,7 +106,6 @@ INSERT INTO Product (ProductID, ProductName, ProductCategory) VALUES
 (5, 'Soylent Powder', 'Powder');
 
 -- Add a few Ingredients (Clara)
-<<<<<<< HEAD
 INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
 (1, 'SoyProtein', 'Yes', 1), 
 (2, 'SunFlowerOil', 'Yes', 2), 
