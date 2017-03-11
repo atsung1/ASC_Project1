@@ -72,31 +72,21 @@ FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
   -- Create the relationship: the first FK in Product
 ALTER TABLE ProductIngredient ADD CONSTRAINT FK_I 
 FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
-
-
   -- Create the relationship: the first FK in Product
 ALTER TABLE Product ADD CONSTRAINT FK_1 
 FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
 -- create the relationsihp: the first FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
   -- create the relationship: the second FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
   FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 -- create the relationship: the first FK in ingredient 
 ALTER TABLE Ingredients ADD CONSTRAINT FK_Supplier1
 FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
-
 -- create the relationship: the first FK in customers
 ALTER TABLE Customers ADD CONSTRAINT FK_SubsriptionID
 FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
-
-
 -- create the relationship: the first FK in subscription
   ALTER TABLE Subscription ADD CONSTRAINT FK_Subscription_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
