@@ -24,11 +24,8 @@ CREATE TABLE Orders(
   ShipDate bigint NOT NULL,
   TotalAmount bigint NOT NULL,
   CustomerID bigint NOT NULL,
-<<<<<<< HEAD
-  SubscriptionDiscount bigint NOT NULL);
-=======
   SubscriptionID bigint NOT NULL);
->>>>>>> origin/master
+
 
 
   CREATE TABLE Customers(
@@ -97,7 +94,7 @@ FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
 
 -- create the relationship: the first FK in customers
 ALTER TABLE Customers ADD CONSTRAINT FK_SubsriptionID
-FOREIGN KEY (SubscriptionID) REFERENCES Subsription(SubscriptionID);
+FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 
 
 -- create the relationship: the first FK in subscription
