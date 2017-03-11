@@ -99,30 +99,27 @@ FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 
 GO
 
--- We will use designer view to create another relationship: the second FK in CourseEnrollment
 
-
--- Add a few students
+-- Add a few Products
 INSERT INTO Student (StudentID, FirstName, LastName) VALUES 
 (1, 'Beong Jo', 'Kang'),
 (2, 'Kelsey', 'Claflin'),
 (3, 'Helena', 'Hernandez'),
 (4, 'Upasana', 'Roy'),
-(5, 'Waree', 'Rungsiriwat'),
-(6, 'Shazeem', 'Siddiqi'),
-(7, 'Connie', 'Li'),
-(8, 'Hunter', 'Schilb'),
-(9, 'Angela', 'Tsung'),
-(10, 'David', 'Butsko');
+(5, 'Waree', 'Rungsiriwat');
 
+-- Add a few Ingredients (Clara)
 
--- Add a few courses
-INSERT INTO Course(CourseID, CourseTitle, Instuctor) VALUES 
-(1, 'MIS3545-BUSINESS INTELLIGENCE AND DATA ANALYTICS', 'Zhi'),
-(2, 'MIS3690-WEB TECHNOLOGIES', 'Shankar'),
-(3, 'QTM3000-CASE STUDIES IN BUSINESS ANALYTICS', 'Nathan'),
-(4, 'QTM3625-FINANCIAL SIMULATION', 'Dessi'),
-(5, 'SME2012-MANAGING INFORMATION TECH AND SYSTEMS', 'Clare');
+-- Add a few Orders (Clara)
+
+-- Add a few Customers (Sukanya)
+
+-- Add a few Subscriptions (Sukanya)
+
+-- Add a few Packages (Angela)
+
+-- Add a few Suppliers (Angela)
+
 GO
 
 -- Delete the SME course
