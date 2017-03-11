@@ -88,15 +88,25 @@ INSERT INTO Product (ProductID, ProductName, ProductCategory) VALUES
 (2, 'Nectar Drink', 'Drink'),
 (3, 'Cacao Drink', 'Drink'),
 (4, 'Coffiest', 'Coffiest'),
-(5, 'Soylent Powder', 'Powder');
+(5, 'Soylent Powder', 'Powder'),
+(6, 'Airtight Pitcher', 'Prep'),
+(7, 'Cacao Bar', 'Bar'),
+(8, 'Raspberry Bar', 'Bar'),
+(9, 'Caramel Bar', 'Bar'),
+(10, 'Coffee Bar', 'Bar');
 
 -- Add a few Suppliers (Angela)
 INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, PhoneNumber, SupplierAddress) VALUES 
-(1, 'WheatThins', 'Andrei Volkov', 6174958978, '213 Forest St, Babson Park, MA 02457'),
+(1, 'IsomalCo', 'Andrei Volkov', 6174958978, '213 Forest St, Babson Park, MA 02457'),
 (2, 'SoyBeanCo', 'Zhi Li', 6828757483, '123 Rainbow St, San Francisco, CA 91434'),
-(3, 'Kraft', 'Mary Brown', 1025943658, '567 Unicorn St, Los Angeles, CA 90024'),
+(3, 'ProteinCo', 'Mary Brown', 1025943658, '567 Unicorn St, Los Angeles, CA 90024'),
 (4, 'CocoCo', 'John Smith', 1363875763, '951 Babson College Drive, Wellesley, MA 02457'),
-(5, 'PowderCo', 'Ben Franklin', 3448576958, '373 Camelbak Rd, New York City, NY, 12584');
+(5, 'PowderCo', 'Ben Franklin', 3448576958, '373 Camelbak Rd, New York City, NY, 12584'),
+(6, 'SunflowerCo', 'Steve Jobs', 8374947254, '12 FlowerSt, Albany, NY, 29845'),
+(7, 'VitaminCo', 'John Adams', 8364749475, '456 Vita Rd, Boston, MA, 02748'),
+(8, 'OilCo', 'Jane Doe', 0126480173, '8384 Oil St, Reno, NV, 83927'),
+(9, 'CoffeeCo', 'Bobby White', 1083529563, '837 Coffee Rd, New York City, NY, 12584'),
+(10, 'MineralCo', 'George Washington', 0285380533, '92 Mineral Rd, New York City, NY, 12592');
 
 -- Add a few Ingredients (Clara)
 INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
@@ -136,18 +146,14 @@ INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES
 (2, 24, 68, 4),
 (3, 36, 102, 3),
 (4, 48, 136, 2),
-(5, 60, 34, 1);
+(5, 60, 170, 1),
+(6, 72, 204, 6),
+(7, 84, 238, 7),
+(8, 96, 272, 8),
+(9, 108, 306, 9),
+(10, 120, 340, 10);
 
 GO
-
--- Delete the SME course
-DELETE FROM Course
-WHERE CourseTitle like 'SME%';
-GO 
-
-
--- We will use data view to add grade data
-
 
 -- Some queries
 SELECT * FROM Student;
