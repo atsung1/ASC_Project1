@@ -109,8 +109,20 @@ INSERT INTO Student (StudentID, FirstName, LastName) VALUES
 (5, 'Waree', 'Rungsiriwat');
 
 -- Add a few Ingredients (Clara)
-
+INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
+(1, 'SoyProtein', 'Yes', 001), 
+(2, 'SunFlowerOil', 'Yes', 002), 
+(3, 'Isomaltulose', 'Yes', 003), 
+(4, 'Vitamin', 'No', 004), 
+(5, 'Mineral', 'No', 005);
 -- Add a few Orders (Clara)
+INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
+(0001, 01-01-2017, 01-04-2017, '$55.00'),
+(0002, 01-01-2017, 01-06-2017, '$23.00'),
+(0003, 01-02-2017, 01-07-2017, '$44.00'), 
+(0004, 01-03-2017, 01-08-2017, '$24.00'),
+(0005, 01-04-2017, 01-09-2017, '$31.00');
+
 
 -- Add a few Customers (Sukanya)
 
