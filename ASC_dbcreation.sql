@@ -115,11 +115,11 @@ INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALU
 
 -- Add a few Orders (Clara)
 INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
-(0001, 2017-01-01, 2017-01-04, 55.00),
-(0002, 2017-01-01, 2017-01-06, 23.00),
-(0003, 2017-01-02, 2017-01-07, 44.00), 
-(0004, 2017-01-03, 2017-01-08, 24.00),
-(0005, 2017-01-04, 2017-01-09, 31.00);
+(0001, '2017-01-01', '2017-01-04', 55.00),
+(0002, '2017-01-01', '2017-01-06', 23.00),
+(0003, '2017-01-02', '2017-01-07', 44.00), 
+(0004, '2017-01-03', '2017-01-08', 24.00),
+(0005, '2017-01-04', '2017-01-09', 31.00);
 
 
 -- Add a few Customers (Sukanya)
@@ -132,11 +132,11 @@ INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode,
 
 -- Add a few Subscriptions (Sukanya)
 INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount, CustomerID) VALUES 
-(1, 2017-03-11, 2018-03-11, 5, 1),
-(2, 2017-03-10, 2018-03-10, 5, 2),
-(3, 2017-01-11, 2018-01-11, 5, 3),
-(4, 2017-02-11, 2018-02-11, 5, 4),
-(5, 2017-01-10, 2018-01-10, 5, 5);
+(1, '2017-03-11', '2018-03-11', 5, 1),
+(2, '2017-03-10', '2018-03-10', 5, 2),
+(3, '2017-01-11', '2018-01-11', 5, 3),
+(4, '2017-02-11', '2018-02-11', 5, 4),
+(5, '2017-01-10', '2018-01-10', 5, 5);
 
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
