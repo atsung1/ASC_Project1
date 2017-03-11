@@ -59,22 +59,25 @@ ContactName varchar (50) NOT NULL,
 PhoneNumber bigint NOT NULL, 
 SupplierAddress varchar (50) NOT NULL,
 IngredientID bigint NOT NULL); 
+-- create product-ingredient table,need two foreign keys 
+CREATE TABLE ProductIngredient(
+ProductID bigint NOT NULL, 
+IngredientID bigint NOT NULL,
+PRIMARY KEY (ProductID, IngredientID));
+  -- Create the 2 FKs in product-ingredient table
+ALTER TABLE ProductIngredient ADD CONSTRAINT FK_P
+FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
+  -- Create the relationship: the first FK in Product
+ALTER TABLE ProductIngredient ADD CONSTRAINT FK_I 
+FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
 
-
--- create product-ingredient table
-	-- need two foreign keys 
 
   -- Create the relationship: the first FK in Product
 ALTER TABLE Product ADD CONSTRAINT FK_1 
 FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
-GO
-
 -- create the relationsihp: the first FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
-
-  
-
   -- create the relationship: the second FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
   FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
