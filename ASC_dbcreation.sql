@@ -19,8 +19,8 @@ CREATE TABLE Ingredients(
 
 CREATE TABLE Orders(
   OrderID bigint NOT NULL PRIMARY KEY,
-  OrderDate bigint NOT NULL,
-  ShipDate bigint NOT NULL,
+  OrderDate date NOT NULL,
+  ShipDate date NOT NULL,
   TotalAmount bigint NOT NULL,
   CustomerID bigint NOT NULL,
   SubscriptionID bigint NOT NULL);
@@ -42,7 +42,7 @@ CustomerID bigint NOT NULL PRIMARY KEY,
 
  CREATE TABLE Subscription(
  SubscriptionID bigint NOT NULL PRIMARY KEY, 
- StartDate date NOT  NULL, 
+ StartDate date NOT NULL, 
  EndDate date NOT NULL, 
 Discount bigint NOT NULL,
 CustomerID bigint NOT NULL);
@@ -115,11 +115,11 @@ INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALU
 
 -- Add a few Orders (Clara)
 INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
-(0001, 01-01-2017, 01-04-2017, 55.00),
-(0002, 01-01-2017, 01-06-2017, 23.00),
-(0003, 01-02-2017, 01-07-2017, 44.00), 
-(0004, 01-03-2017, 01-08-2017, 24.00),
-(0005, 01-04-2017, 01-09-2017, 31.00);
+(0001, 2017-01-01, 2017-01-04, 55.00),
+(0002, 2017-01-01, 2017-01-06, 23.00),
+(0003, 2017-01-02, 2017-01-07, 44.00), 
+(0004, 2017-01-03, 2017-01-08, 24.00),
+(0005, 2017-01-04, 2017-01-09, 31.00);
 
 
 -- Add a few Customers (Sukanya)
