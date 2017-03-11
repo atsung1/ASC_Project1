@@ -110,48 +110,37 @@ INSERT INTO Product (ProductID, ProductName, ProductCategory) VALUES
 -- Add a few Ingredients (Clara)
 <<<<<<< HEAD
 INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
-(1, 'SoyProtein', 'Yes', 001), 
-(2, 'SunFlowerOil', 'Yes', 002), 
-(3, 'Isomaltulose', 'Yes', 003), 
-(4, 'Vitamin', 'No', 004), 
-(5, 'Mineral', 'No', 005);
-=======
+(1, 'SoyProtein', 'Yes', 1), 
+(2, 'SunFlowerOil', 'Yes', 2), 
+(3, 'Isomaltulose', 'Yes', 3), 
+(4, 'Vitamin', 'No', 4), 
+(5, 'Mineral', 'No', 5);
 
-
->>>>>>> origin/master
 -- Add a few Orders (Clara)
 INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
-(0001, 01-01-2017, 01-04-2017, '$55.00'),
-(0002, 01-01-2017, 01-06-2017, '$23.00'),
-(0003, 01-02-2017, 01-07-2017, '$44.00'), 
-(0004, 01-03-2017, 01-08-2017, '$24.00'),
-(0005, 01-04-2017, 01-09-2017, '$31.00');
+(0001, 01-01-2017, 01-04-2017, 55.00),
+(0002, 01-01-2017, 01-06-2017, 23.00),
+(0003, 01-02-2017, 01-07-2017, 44.00), 
+(0004, 01-03-2017, 01-08-2017, 24.00),
+(0005, 01-04-2017, 01-09-2017, 31.00);
 
 
 -- Add a few Customers (Sukanya)
 INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode, StateUS, Country, Email, PhoneNumber, SubscriptionID) VALUES 
-(1, 'Clara', 'Linanada', 'Campus Box #1443 231 Forest St.', '02457', 'MA', 'USA', 'clinanada1@babson.edu', '6263751779', '001'),
-(2, 'Angela', 'Tsung', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'atsung1@babson.edu', '6263751777', '002'),
-(3, 'Sukanya', 'Mukherjee', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'smukherjee4@babson.edu', '6263751778', '003'),
-(4, 'Prabha', 'Dublish', 'Campus Box #1448 231 Forest St.', '02457', 'MA', 'USA', 'pdublish1@babson.edu', '6263751774', '004'),
-(5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', '005');
+(1, 'Clara', 'Linanada', 'Campus Box #1443 231 Forest St.', '02457', 'MA', 'USA', 'clinanada1@babson.edu', '6263751779', 1),
+(2, 'Angela', 'Tsung', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'atsung1@babson.edu', '6263751777', 2),
+(3, 'Sukanya', 'Mukherjee', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'smukherjee4@babson.edu', '6263751778', 3),
+(4, 'Prabha', 'Dublish', 'Campus Box #1448 231 Forest St.', '02457', 'MA', 'USA', 'pdublish1@babson.edu', '6263751774', 4),
+(5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', 5);
 
-FirstName varchar(50) NOT NULL,
- LastName varchar(50) NOT NULL,
- AddressComplete varchar(50) NOT NULL,
- ZipCode varchar(50) NOT NULL,
- StateUS varchar(50) NOT NULL,
- Country varchar(50) NOT NULL,
- Email varchar(50) NOT NULL,
- PhoneNumber varchar(50) NOT NULL,
- SubscriptionID bigint NOT NULL);
 -- Add a few Subscriptions (Sukanya)
+INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount, CustomerID) VALUES 
+(1, 03-11-2017, 03-11-2018, 5, 1),
+(2, 03-10-2017, 03-10-2018, 5, 2),
+(3, 01-11-2017, 01-11-2018, 5, 3),
+(4, 02-11-2017, 02-11-2018, 5, 4),
+(5, 01-10-2017, 01-10-2018, 5, 5);
 
- SubscriptionID bigint NOT NULL PRIMARY KEY, 
- StartDate date NOT  NULL, 
- EndDate date NOT NULL, 
-Discount bigint NOT NULL,
-CustomerID bigint NOT NULL);
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
 (1, 12, 34, 5),
