@@ -138,13 +138,6 @@ INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount, CustomerI
 (4, 2017-02-11, 2018-02-11, 5, 4),
 (5, 2017-01-10, 2018-01-10, 5, 5);
 
- CREATE TABLE Subscription(
- SubscriptionID bigint NOT NULL PRIMARY KEY, 
- StartDate date NOT  NULL, 
- EndDate date NOT NULL, 
-Discount bigint NOT NULL,
-CustomerID bigint NOT NULL);
-
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
 (1, 12, 34, 5),
