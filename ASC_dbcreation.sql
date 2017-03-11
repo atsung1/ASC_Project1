@@ -14,8 +14,8 @@ CREATE TABLE Product(
 CREATE TABLE Ingredients(
   IngredientID bigint NOT NULL PRIMARY KEY,
   IngredientName varchar(50) NOT NULL,
-  Flagged varchar(50) NOT NULL
-  );
+  Flagged varchar(50) NOT NULL,
+  SupplierID bigint NOT NULL);
 
 
 CREATE TABLE Orders(
@@ -23,8 +23,8 @@ CREATE TABLE Orders(
   OrderDate bigint NOT NULL,
   ShipDate bigint NOT NULL,
   TotalAmount bigint NOT NULL,
-  CustomerID bigint NOT NULL
-  SubscriptionDiscount bigint NOT NULL;);
+  CustomerID bigint NOT NULL,
+  SubscriptionDiscount bigint NOT NULL);
 
 
   CREATE TABLE Customers(
@@ -36,7 +36,8 @@ CustomerID bigint NOT NULL PRIMARY KEY,
  StateUS varchar(50) NOT NULL,
  Country varchar(50) NOT NULL,
  Email varchar(50) NOT NULL,
- PhoneNumber varchar(50) NOT NULL);
+ PhoneNumber varchar(50) NOT NULL,
+ SubscriptionID bigint NOT NULL);
 
 
  CREATE TABLE Subscription(
@@ -70,14 +71,18 @@ GO
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
 
-  
 
   -- create the relationship: the second FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
   FOREIGN KEY (SubscriptionDiscount) REFERENCES Subscription(Discount);
 -- create the relationship: the first FK in ingredient 
+ALTER TABLE Ingredients ADD CONSTRAINT FK_Supplier1
+FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
 
 -- create the relationship: the first FK in customers
+ALTER TABLE Customers ADD CONSTRAINT FK_SubsriptionID
+FOREIGN KEY (SubscriptionID) REFERENCES Subsription(SubscriptionID);
+
 
 -- create the relationship: the first FK in subscription
 
