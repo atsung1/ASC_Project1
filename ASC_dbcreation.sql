@@ -22,8 +22,7 @@ CREATE TABLE Orders(
   OrderDate date NOT NULL,
   ShipDate date NOT NULL,
   TotalAmount bigint NOT NULL,
-  CustomerID bigint NOT NULL,
-  SubscriptionID bigint NOT NULL);
+  CustomerID bigint NOT NULL);
 
 
 
@@ -44,8 +43,7 @@ CustomerID bigint NOT NULL PRIMARY KEY,
  SubscriptionID bigint NOT NULL PRIMARY KEY, 
  StartDate date NOT NULL, 
  EndDate date NOT NULL, 
-Discount bigint NOT NULL,
-CustomerID bigint NOT NULL);
+Discount bigint NOT NULL);
 
 CREATE TABLE Packages(
 PackageID bigint NOT NULL PRIMARY KEY, 
@@ -58,8 +56,7 @@ SupplierID bigint NOT NULL PRIMARY KEY,
 SupplierName varchar (50) NOT NULL,
 ContactName varchar (50) NOT NULL,
 PhoneNumber bigint NOT NULL, 
-SupplierAddress varchar (50) NOT NULL,
-IngredientID bigint NOT NULL); 
+SupplierAddress varchar (50) NOT NULL); 
 -- create product-ingredient table,need two foreign keys 
 CREATE TABLE ProductIngredient(
 ProductID bigint NOT NULL, 
@@ -68,31 +65,19 @@ PRIMARY KEY (ProductID, IngredientID));
   -- Create the 2 FKs in product-ingredient table
 ALTER TABLE ProductIngredient ADD CONSTRAINT FK_P
 FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
-  -- Create the relationship: the first FK in Product
-ALTER TABLE ProductIngredient ADD CONSTRAINT FK_I 
-FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
-
 -- create the relationsihp: the first FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
-  -- create the relationship: the second FK in orders
-  ALTER TABLE Orders ADD CONSTRAINT FK_Subscription_Discount
-  FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 -- create the relationship: the first FK in ingredient 
 ALTER TABLE Ingredients ADD CONSTRAINT FK_Supplier1
 FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
 -- create the relationship: the first FK in customers
 ALTER TABLE Customers ADD CONSTRAINT FK_SubsriptionID
 FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
--- create the relationship: the first FK in subscription
-  ALTER TABLE Subscription ADD CONSTRAINT FK_Subscription_Customers
-  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
 -- create the relationship: the first FK in packages
   ALTER TABLE Packages ADD CONSTRAINT FK_Packages_Product
   FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
--- create the relationship: the first FK in suppliers
-  ALTER TABLE Suppliers ADD CONSTRAINT FK_Suppliers_Ingredients
-  FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID);
+;
 
 GO
 
@@ -105,6 +90,14 @@ INSERT INTO Product (ProductID, ProductName, ProductCategory) VALUES
 (4, 'Coffiest', 'Coffiest'),
 (5, 'Soylent Powder', 'Powder');
 
+-- Add a few Suppliers (Angela)
+INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, PhoneNumber, SupplierAddress) VALUES 
+(1, 'WheatThins', 'Andrei Volkov', 6174958978, '213 Forest St, Babson Park, MA 02457'),
+(2, 'SoyBeanCo', 'Zhi Li', 6828757483, '123 Rainbow St, San Francisco, CA 91434'),
+(3, 'Kraft', 'Mary Brown', 1025943658, '567 Unicorn St, Los Angeles, CA 90024'),
+(4, 'CocoCo', 'John Smith', 1363875763, '951 Babson College Drive, Wellesley, MA 02457'),
+(5, 'PowderCo', 'Ben Franklin', 3448576958, '373 Camelbak Rd, New York City, NY, 12584');
+
 -- Add a few Ingredients (Clara)
 INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALUES
 (1, 'SoyProtein', 'Yes', 1), 
@@ -113,14 +106,13 @@ INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALU
 (4, 'Vitamin', 'No', 4), 
 (5, 'Mineral', 'No', 5);
 
--- Add a few Orders (Clara)
-INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount) VALUES 
-(0001, '2017-01-01', '2017-01-04', 55.00),
-(0002, '2017-01-01', '2017-01-06', 23.00),
-(0003, '2017-01-02', '2017-01-07', 44.00), 
-(0004, '2017-01-03', '2017-01-08', 24.00),
-(0005, '2017-01-04', '2017-01-09', 31.00);
-
+-- Add a few Subscriptions (Sukanya)
+INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount) VALUES 
+(1, '2017-03-11', '2018-03-11', 5),
+(2, '2017-03-10', '2018-03-10', 5),
+(3, '2017-01-11', '2018-01-11', 5),
+(4, '2017-02-11', '2018-02-11', 5),
+(5, '2017-01-10', '2018-01-10', 5);
 
 -- Add a few Customers (Sukanya)
 INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode, StateUS, Country, Email, PhoneNumber, SubscriptionID) VALUES 
@@ -130,13 +122,13 @@ INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode,
 (4, 'Prabha', 'Dublish', 'Campus Box #1448 231 Forest St.', '02457', 'MA', 'USA', 'pdublish1@babson.edu', '6263751774', 4),
 (5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', 5);
 
--- Add a few Subscriptions (Sukanya)
-INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount, CustomerID) VALUES 
-(1, '2017-03-11', '2018-03-11', 5, 1),
-(2, '2017-03-10', '2018-03-10', 5, 2),
-(3, '2017-01-11', '2018-01-11', 5, 3),
-(4, '2017-02-11', '2018-02-11', 5, 4),
-(5, '2017-01-10', '2018-01-10', 5, 5);
+-- Add a few Orders (Clara)
+INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount, CustomerID) VALUES 
+(0001, '2017-01-01', '2017-01-04', 55.00, 1),
+(0002, '2017-01-01', '2017-01-06', 23.00, 2),
+(0003, '2017-01-02', '2017-01-07', 44.00, 3), 
+(0004, '2017-01-03', '2017-01-08', 24.00, 4),
+(0005, '2017-01-04', '2017-01-09', 31.00, 5);
 
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
@@ -145,13 +137,7 @@ INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES
 (3, 36, 102, 3),
 (4, 48, 136, 2),
 (5, 60, 34, 1);
--- Add a few Suppliers (Angela)
-INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, PhoneNumber, SupplierAddress, IngredientID) VALUES 
-(1, 'WheatThins', 'Andrei Volkov', 6174958978, '213 Forest St, Babson Park, MA 02457', 5 ),
-(2, 'SoyBeanCo', 'Zhi Li', 6828757483, '123 Rainbow St, San Francisco, CA 91434', 4),
-(3, 'Kraft', 'Mary Brown', 1025943658, '567 Unicorn St, Los Angeles, CA 90024', 3),
-(4, 'CocoCo', 'John Smith', 1363875763, '951 Babson College Drive, Wellesley, MA 02457', 2),
-(5, 'PowderCo', 'Ben Franklin', 3448576958, '373 Camelbak Rd, New York City, NY, 12584', 1);
+
 GO
 
 -- Delete the SME course
