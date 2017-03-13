@@ -1,7 +1,7 @@
 ﻿USE Soylent;
 GO
 <<<<<<< HEAD
---1. Queries from all Tables-- 
+/*Multiple SELECT * queries to display all the records from each table. (Suppose the database has 4 tables, you should create 4 queries for this requirement.)*/
 Select * From Customers; 
 Select * From Ingredients; 
 Select * From Orders; 
@@ -10,10 +10,7 @@ Select * From Product;
 Select * From ProductIngredient; 
 Select * From Subscription;
 Select * From Suppliers;  
-=======
->>>>>>> origin/master
 
-/*Multiple SELECT * queries to display all the records from each table. (Suppose the database has 4 tables, you should create 4 queries for this requirement.)*/
 
 SELECT *
 FROM Product;
