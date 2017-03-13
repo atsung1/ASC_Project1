@@ -1,6 +1,4 @@
-﻿Use Soylent;
-
-USE Soylent;
+﻿USE Soylent;
 GO
 
 /*Multiple SELECT * queries to display all the records from each table. (Suppose the database has 4 tables, you should create 4 queries for this requirement.)*/
@@ -12,8 +10,6 @@ SELECT
 
 
 /*A query that uses aggregate function.*/
-
-
 SELECT sum(TotalAmount) as SumOfTotalAmount, OrderDate
 FROM Orders
 GROUP BY OrderDate;
