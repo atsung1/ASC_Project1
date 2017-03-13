@@ -127,7 +127,14 @@ INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount) VALUES
 (2, '2017-03-10', '2018-03-10', 5),
 (3, '2017-01-11', '2018-01-11', 5),
 (4, '2017-02-11', '2018-02-11', 5),
-(5, '2017-01-10', '2018-01-10', 5);
+(5, '2017-01-10', '2018-01-10', 5),
+(6, '2017-01-21', '2018-01-21', 5),
+(7, '2017-03-12', '2018-03-12', 5),
+(8, '2017-01-04', '2018-01-04', 5),
+(9, '2017-01-25', '2018-01-26', 5),
+(10, '2017-01-16', '2018-01-16', 5);
+
+
 
 -- Add a few Customers (Sukanya)
 INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode, StateUS, Country, Email, PhoneNumber, SubscriptionID) VALUES 
@@ -135,7 +142,12 @@ INSERT INTO Customers(CustomerID, FirstName, LastName, AddressComplete, ZipCode,
 (2, 'Angela', 'Tsung', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'atsung1@babson.edu', '6263751777', 2),
 (3, 'Sukanya', 'Mukherjee', 'Campus Box #1442 231 Forest St.', '02457', 'MA', 'USA', 'smukherjee4@babson.edu', '6263751778', 3),
 (4, 'Prabha', 'Dublish', 'Campus Box #1448 231 Forest St.', '02457', 'MA', 'USA', 'pdublish1@babson.edu', '6263751774', 4),
-(5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', 5);
+(5, 'Tiffany', 'Shum', 'Campus Box #1440 231 Forest St.', '02457', 'MA', 'USA', 'tshum1@babson.edu', '6263751771', 5)
+(6, 'Sarah', 'Liu', 'Campus Box #1423 231 Forest St.', '02457', 'MA', 'USA', 'sliu9@babson.edu', '6263219131', 6)
+(7, 'Guadalupe', 'Carino', 'Campus Box #1420 231 Forest St.', '02457', 'MA', 'USA', 'gcarino1@babson.edu', '6261223451', 7)
+(8, 'Tim', 'Brown', 'Campus Box #1140 231 Forest St.', '02457', 'MA', 'USA', 'tbrown1@babson.edu', '626371341', 8)
+(9, 'Angel', 'Seto', 'Campus Box #1540 231 Forest St.', '02457', 'MA', 'USA', 'aseto1@babson.edu', '6262751771', 9)
+(10, 'Abdi', 'Bal', 'Campus Box #1410 231 Forest St.', '02457', 'MA', 'USA', 'abal1@babson.edu', '6263731771', 10)
 
 -- Add a few Orders (Clara)
 INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount, CustomerID) VALUES 
