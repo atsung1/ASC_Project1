@@ -113,8 +113,13 @@ INSERT INTO Ingredients (IngredientID, IngredientName, Flagged, SupplierID) VALU
 (1, 'SoyProtein', 'Yes', 1), 
 (2, 'SunFlowerOil', 'Yes', 2), 
 (3, 'Isomaltulose', 'Yes', 3), 
-(4, 'Vitamin', 'No', 4), 
-(5, 'Mineral', 'No', 5);
+(4, 'VitaminA', 'No', 4), 
+(5, 'Mineral', 'No', 5),
+(6, 'VitaminB', 'No', 6),
+(7, 'VitaminC', 'No', 7),
+(8, 'VitaminD', 'No', 8), 
+(9, 'VitaminE', 'No', 9),
+(10, 'Aqua', 'No', 10);
 
 -- Add a few Subscriptions (Sukanya)
 INSERT INTO Subscription(SubscriptionID, StartDate, EndDate, Discount) VALUES 
@@ -138,7 +143,12 @@ INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount, CustomerID) VALUE
 (0002, '2017-01-01', '2017-01-06', 23.00, 2),
 (0003, '2017-01-02', '2017-01-07', 44.00, 3), 
 (0004, '2017-01-03', '2017-01-08', 24.00, 4),
-(0005, '2017-01-04', '2017-01-09', 31.00, 5);
+(0005, '2017-01-04', '2017-01-09', 31.00, 5),
+(0006, '2017-01-05', '2017-01-10', 37.00, 6),
+(0007, '2017-01-06', '2017-01-11', 22.00, 7), 
+(0008, '2017-01-07', '2017-01-12', 58.00, 8),
+(0009, '2017-01-08', '2017-01-13', 82.00, 9),
+(0010, '2017-01-09', '2017-01-15', 41.00, 10);
 
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
