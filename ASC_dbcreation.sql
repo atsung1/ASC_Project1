@@ -176,27 +176,3 @@ INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES
 (10, 120, 340, 10);
 
 GO
-
--- Some queries
-SELECT * FROM Student;
-SELECT * FROM Course;
-SELECT * FROM CourseEnrollment;
-
-GO
-
--- Create a handy view summarizing students' grades
-CREATE VIEW vwStudentGradeSummary WITH SCHEMABINDING AS
- SELECT
-   s.StudentID, s.FirstName, s.LastName, 
-   ISNULL(COUNT(ce.CourseID), 0) AS NumberOfCourses,
-   ISNULL(SUM(ce.Grade), 0) AS TotalGrade
-  FROM
-   dbo.Student AS s
-   LEFT OUTER JOIN dbo.CourseEnrollment AS ce ON s.StudentID = ce.StudentId
-  GROUP BY
-   s.StudentID, s.FirstName, s.LastName
-GO
-
-
-SELECT * FROM vwStudentGradeSummary;
-
