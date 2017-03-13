@@ -1,6 +1,11 @@
 ﻿USE Soylent;
+<<<<<<< HEAD
 GO
 <<<<<<< HEAD
+=======
+GO  
+
+>>>>>>> origin/master
 /*Multiple SELECT * queries to display all the records from each table. (Suppose the database has 4 tables, you should create 4 queries for this requirement.)*/
 Select * From Customers; 
 Select * From Ingredients; 
@@ -10,6 +15,7 @@ Select * From Product;
 Select * From ProductIngredient; 
 Select * From Subscription;
 Select * From Suppliers;  
+<<<<<<< HEAD
 
 
 SELECT *
@@ -17,6 +23,8 @@ FROM Product;
 
 SELECT 
 
+=======
+>>>>>>> origin/master
 
 /*A query that uses aggregate function.*/
 SELECT sum(TotalAmount) as SumOfTotalAmount, OrderDate
