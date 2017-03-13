@@ -1,6 +1,7 @@
 ﻿/*You have to create the following queries. For each query, you need to use comment block to describe what data you are looking for. Below are requirements for each query:*/
 use Soylent;
 GO
+--1. Queries from all Tables-- 
 Select * From Customers; 
 Select * From Ingredients; 
 Select * From Orders; 
