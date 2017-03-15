@@ -22,7 +22,8 @@ CREATE TABLE Orders(
   OrderDate date NOT NULL,
   ShipDate date NOT NULL,
   TotalAmount bigint NOT NULL,
-  CustomerID bigint NOT NULL);
+  CustomerID bigint NOT NULL,
+  PackageID bigint NOT NULL);
 
 
 
@@ -68,6 +69,9 @@ FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
 -- create the relationsihp: the first FK in orders
   ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Customers
   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID);
+  -- create the relationsihp: the package FK in orders
+  ALTER TABLE Orders ADD CONSTRAINT FK_Orders_Package
+  FOREIGN KEY (PackageID) REFERENCES Packages(PackageID);
 -- create the relationship: the first FK in ingredient 
 ALTER TABLE Ingredients ADD CONSTRAINT FK_Supplier1
 FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID);
@@ -77,7 +81,7 @@ FOREIGN KEY (SubscriptionID) REFERENCES Subscription(SubscriptionID);
 -- create the relationship: the first FK in packages
   ALTER TABLE Packages ADD CONSTRAINT FK_Packages_Product
   FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
-;
+
 
 GO
 
@@ -149,19 +153,6 @@ INSERT INTO Customers (CustomerID, FirstName, LastName, AddressComplete, ZipCode
 (9, 'Angel', 'Seto', 'Campus Box #1540 231 Forest St.', '02457', 'MA', 'USA', 'aseto1@babson.edu', '6262751771', 9),
 (10, 'Abdi', 'Bal', 'Campus Box #1410 231 Forest St.', '02457', 'MA', 'USA', 'abal1@babson.edu', '6263731771', 10);
 
--- Add a few Orders (Clara)
-INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount, CustomerID) VALUES 
-(0001, '2017-01-01', '2017-01-04', 55, 1),
-(0002, '2017-01-01', '2017-01-06', 23, 2),
-(0003, '2017-01-02', '2017-01-07', 44, 3), 
-(0004, '2017-01-03', '2017-01-08', 24, 4),
-(0005, '2017-01-04', '2017-01-09', 31, 5),
-(0006, '2017-01-05', '2017-01-10', 37, 6),
-(0007, '2017-01-06', '2017-01-11', 22, 7), 
-(0008, '2017-01-07', '2017-01-12', 58, 8),
-(0009, '2017-01-08', '2017-01-13', 82, 9),
-(0010, '2017-01-09', '2017-01-15', 41, 10);
-
 -- Add a few Packages (Angela)
 INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES 
 (1, 12, 34, 5),
@@ -174,6 +165,20 @@ INSERT INTO Packages (PackageID, PackageSize, Price, ProductID) VALUES
 (8, 96, 272, 8),
 (9, 108, 306, 9),
 (10, 120, 340, 10);
+
+-- Add a few Orders (Clara)
+INSERT INTO Orders (OrderID, OrderDate, ShipDate, TotalAmount, CustomerID, PackageID) VALUES 
+(0001, '2017-01-01', '2017-01-04', 55, 1, 1),
+(0002, '2017-01-01', '2017-01-06', 23, 2, 2),
+(0003, '2017-01-02', '2017-01-07', 44, 3, 3), 
+(0004, '2017-01-03', '2017-01-08', 24, 4, 4),
+(0005, '2017-01-04', '2017-01-09', 31, 5, 5),
+(0006, '2017-01-05', '2017-01-10', 37, 6, 6),
+(0007, '2017-01-06', '2017-01-11', 22, 7, 7), 
+(0008, '2017-01-07', '2017-01-12', 58, 8, 8),
+(0009, '2017-01-08', '2017-01-13', 82, 9, 9),
+(0010, '2017-01-09', '2017-01-15', 41, 10, 10);
+
 
 --Link ProductIngedients (Sukanya)
 INSERT INTO ProductIngredient (ProductID, IngredientID) VALUES
